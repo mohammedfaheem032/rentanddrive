@@ -1,0 +1,78 @@
+﻿@model RentNDrive.Models.UIModel.AdminView
+@{
+    ViewData["Title"] = "Vehicle Type";
+    Layout="~/Views/Shared/_LoginLayout.cshtml";
+}
+<!-- Main Content -->
+		<div class="page-wrapper">
+			<div class="container-fluid">				
+				<!-- Row -->
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">@ViewBag.uservalue List</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div class="table-wrap">
+										<div class="table-responsive">
+											<table id="datable_1" class="table table-hover display  pb-30" >
+												<thead>
+													<tr>
+														<th>@Html.DisplayNameFor(model => model.GetuserInfo.FirstName)</th>
+														<th>@Html.DisplayNameFor(model => model.GetuserInfo.LastName)</th>
+														<th>@Html.DisplayNameFor(model => model.GetuserInfo.OwnerName)</th>
+														<th>@Html.DisplayNameFor(model => model.GetuserInfo.PhoneNumber)</th>
+														<th>@Html.DisplayNameFor(model => model.GetuserInfo.UserName)</th>
+														<th>@Html.DisplayNameFor(model => model.GetuserInfo.Email)</th>														
+														<th>Active / Inactive</th>
+													</tr>
+												</thead>
+												
+												<tbody>
+													@try
+                            {
+								@if(Model.UserList !=null){
+                                @foreach (var item in Model.UserList)
+                                {
+													<tr>
+														<td>@item.FirstName</td>
+														<td>@item.LastName</td>
+														<td>@item.OwnerName</td>
+														<td>@item.PhoneNumber</td>
+														<td>@item.UserName</td>
+														<td>@item.Email</td>
+														@if(item.EmailConfirmed == true){
+														<td><a asp-action="ActiveInactive" asp-controller="Admin" asp-route-id="@item.Id"><i class="zmdi zmdi-shield-check mr-10"></i></a></td>}else{
+														<td><a asp-action="ActiveInactive" asp-controller="Admin" asp-route-id="@item.Id"><i class="zmdi zmdi-thumb-down mr-10"></i></a></td>}
+
+														@*<td>
+															<form>
+																<input type="checkbox" class="js-switch js-switch-1"  data-color="#2ecd99" data-secondary-color="#f0c541" />
+															<input type="checkbox" class="js-switch js-switch-1"  data-color="#f0c541"  data-secondary-color="#2ecd99" />														
+													</form>
+													</td>*@
+													</tr>}}}
+                            catch (Exception err)
+                            {
+
+                            }
+													
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<!-- /Row -->
+		</div>
+		<!-- /Main Content -->
+		</div>
+

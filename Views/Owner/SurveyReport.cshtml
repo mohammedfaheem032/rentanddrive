@@ -1,0 +1,93 @@
+﻿@model RentNDrive.Models.UIModel.VehicleView
+
+@{
+    ViewData["Title"] = "Payment";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="container-fluid">      
+            <!-- Title -->
+            <div class="row heading-bg">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h5 class="txt-dark">Survey Report</h5>
+                </div>
+
+                <!-- Breadcrumb -->
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Owner</a></li>
+                        <li class="active"><span>Survey Report</span></li>
+                    </ol>
+                </div>
+                <!-- /Breadcrumb -->
+
+        </div>
+            <!-- /Title -->            
+        <div class="row">
+					<!-- Basic Table -->
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Survey Report</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">									
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+												  <tr>
+													<th>#</th>
+													<th>Owner Name</th>
+													<th>Renter Name</th>
+													<th>Vehicle Name</th>
+													<th>1. How pleased are you overall with my assistance?</th>
+													<th>2. Our vehicle performed as expected:</th>
+													<th>3. Regarding affordability of our car pricing</th>
+													<th>4. Regarding  on the clarity of the terms and conditions</th>
+													<th>5. Please provide some ideas to enhance our service.</th>
+													<th>Paid Date</th>													
+												  </tr>
+												</thead>
+												<tbody>
+                                            @try
+                                            {
+                                                @if (Model != null)
+                                                {
+                                                    @foreach (var item in Model.GetAllSurvey)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.Id</td>
+                                                            <td>@item.NMOwnerName</td>
+                                                            <td>@item.NMRenterName</td>                                                            
+                                                            <td>@item.NMVehicleTitle</td>
+                                                            <td>@item.Q1Survey</td>
+                                                            <td>@item.Q2Survey</td>
+                                                                <td>@item.Q3Survey</td>
+                                                                <td>@item.Q4Survey</td>
+                                                                <td>@item.Q5Survey</td>
+                                                                <td>@item.SurveyDate</td></tr>                                                            
+                                                    }
+
+                                                }
+                                            }
+                                            catch (Exception err)
+                                            {
+
+                                            }
+                                        </tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Basic Table -->
+				</div>	
+    </div>

@@ -1,0 +1,117 @@
+﻿@model RentNDrive.Models.VehicleInfo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>VehicleInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="OwnerId" class="control-label"></label>
+                <input asp-for="OwnerId" class="form-control" />
+                <span asp-validation-for="OwnerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleName" class="control-label"></label>
+                <input asp-for="VehicleName" class="form-control" />
+                <span asp-validation-for="VehicleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleNo" class="control-label"></label>
+                <input asp-for="VehicleNo" class="form-control" />
+                <span asp-validation-for="VehicleNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistrationDate" class="control-label"></label>
+                <input asp-for="RegistrationDate" class="form-control" />
+                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleType" class="control-label"></label>
+                <input asp-for="VehicleType" class="form-control" />
+                <span asp-validation-for="VehicleType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleManufacturer" class="control-label"></label>
+                <input asp-for="VehicleManufacturer" class="form-control" />
+                <span asp-validation-for="VehicleManufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehiclePrice" class="control-label"></label>
+                <input asp-for="VehiclePrice" class="form-control" />
+                <span asp-validation-for="VehiclePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PriceType" class="control-label"></label>
+                <input asp-for="PriceType" class="form-control" />
+                <span asp-validation-for="PriceType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Doors" class="control-label"></label>
+                <input asp-for="Doors" class="form-control" />
+                <span asp-validation-for="Doors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Passengers" class="control-label"></label>
+                <input asp-for="Passengers" class="form-control" />
+                <span asp-validation-for="Passengers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Luggage" class="control-label"></label>
+                <input asp-for="Luggage" class="form-control" />
+                <span asp-validation-for="Luggage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transmission" class="control-label"></label>
+                <input asp-for="Transmission" class="form-control" />
+                <span asp-validation-for="Transmission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirConditioning" class="control-label"></label>
+                <input asp-for="AirConditioning" class="form-control" />
+                <span asp-validation-for="AirConditioning" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terms" class="control-label"></label>
+                <input asp-for="Terms" class="form-control" />
+                <span asp-validation-for="Terms" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="VehicleAvailableStatus" /> @Html.DisplayNameFor(model => model.VehicleAvailableStatus)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FeatureVehicle" /> @Html.DisplayNameFor(model => model.FeatureVehicle)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleImage" class="control-label"></label>
+                <input asp-for="VehicleImage" class="form-control" />
+                <span asp-validation-for="VehicleImage" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="VehicleActiveStatus" /> @Html.DisplayNameFor(model => model.VehicleActiveStatus)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

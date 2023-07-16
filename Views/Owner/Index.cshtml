@@ -1,0 +1,138 @@
+﻿@model IEnumerable<RentNDrive.Models.VehicleInfo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleManufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passengers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Luggage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transmission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AirConditioning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Terms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleAvailableStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeatureVehicle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleActiveStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleManufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehiclePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passengers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Luggage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transmission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirConditioning)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Terms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleAvailableStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeatureVehicle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleActiveStatus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

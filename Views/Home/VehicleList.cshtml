@@ -1,0 +1,149 @@
+﻿@model RentNDrive.Models.UIModel.VehicleView
+@{
+    ViewData["Title"] = "Vehicle List Page";
+    Layout="~/Views/Shared/_Layout.cshtml";
+    string latval = "37.0902", lngval = "-95.7129";
+    if (@Model.GetAllVehicles != null && @Model.GetAllVehicles.Count >0)
+    {
+        latval = "@Model.GetAllVehicles[0].VLatitude"; lngval = "@Model.GetAllVehicles[0].VLongitude";        
+    }
+    
+}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" style="opacity:0.7;">           
+          	<form asp-action="FindBookingVehicle">
+            <div class="col-md-12	featured-top ftco-animate pb-5">
+    				<div class="row no-gutters">
+                        
+	  					<div class="col-md-10 d-flex align-items-center">
+	  						<div class="services-wrap rounded-right w-100">
+	  							<h3 class="heading-section mb-4">A Better Way to Search Your Ideal Cars</h3>
+	  							<div class="row d-flex mb-4">
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="form-group">
+			    					<label for="" class="label">Vehicle Name</label>
+			    					<input type="text" name="vehicleName" class= "form-control" placeholder="Vehicle Name">
+			    				</div>     
+					          </div>
+                              <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="form-group">
+			    					<label for="" class="label">Vehicle Type</label>
+			    					<input type="text" name="vehicleType" class= "form-control" placeholder="Vehicle Type">
+			    				</div>     
+					          </div>
+                              <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="form-group">
+			    					<label for="" class="label">Vehicle Manufacturer</label>
+			    					<input type="text" name="vehicleManufacturer" class= "form-control" placeholder="Vehicle Manufacturer">
+			    				</div>     
+					          </div>
+					         <div class="form-group ml-2">
+			    					<label for="" class="label">Location</label>
+			    					<input type="text" id="findlocation" name="findlocation" class= "form-control" placeholder="Location">
+			    				</div>			    				
+			    				<div class="d-flex">
+			    					<div class="form-group ml-2">
+			                <label for="" class="label">From Date</label>
+			                <input type="datetime-local" name="pickup" class="form-control" id="pickup" placeholder="Date">
+			              </div>
+                          </div>
+                          <div class="d-flex">
+			    					<div class="form-group ml-2">
+			                <label for="" class="label" id="lblresult">To Date</label>
+			                <input type="datetime-local" name="dropoff" class="form-control" id="dropoff" placeholder="Date">
+			              </div>
+                          </div>
+					        </div>
+                            <input type="submit" value="Find Your Ideal Vehicle" class="btn btn-secondary py-3 px-4" id="btn">					        
+	  						</div>
+	  					</div>
+                          
+	  				</div>
+				</div>
+                </form>
+          </div>
+        </div>      
+    </section>
+
+   
+		
+
+		<section class="ftco-section bg-light">
+    	<div class="container">
+    		<div class="row">
+                 @if (Model != null)
+                    {
+                        @foreach (var item in Model.GetAllVehicles)
+                        {
+    			<div class="col-md-4">
+    				<div class="car-wrap rounded ftco-animate">    					
+    					<div class="img rounded d-flex align-items-end" style="background-image: url('../VehicleImages/@item.VehicleImage');">
+    					</div>
+                   
+                            <div class="text">
+                                <h2 class="mb-0"><a href="#">@item.VehicleName</a></h2>
+                                <div class="d-flex mb-3">
+                                    <span class="cat">@item.NMVehicleType</span>
+                                    <p class="price ml-auto">$@item.VehiclePrice <span>/ @item.PriceType</span></p>
+                                </div>
+                                <p class="d-flex mb-0 d-block"><a asp-controller="Renter" asp-action="BookNow" asp-route-vehId="@item.Id" class="btn btn-primary py-2 mr-1">Book now</a> <a asp-action="VehicleDetails" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-secondary py-2 ml-1">Details</a></p>
+                            </div>
+                        
+                </div>
+    			</div>   
+                }
+
+                    }
+    		</div>    		
+    	</div>
+    </section>
+    <div class="row justify-content-center">
+        	<div class="col-md-12">
+        		<div id="map"></div>
+        	</div>
+        </div>
+
+       @* <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer></script>*@
+     @*<script type="text/javascript">  
+        $(document).ready(function () {  
+            $("#btn").click(function () {  
+                var geocoder = new google.maps.Geocoder();  
+                //var con = document.getElementById('txtCon').value;  
+                var city = document.getElementById('findlocation').value;  
+                var res = document.getElementById('lblresult');  
+                var com = city;  
+                geocoder.geocode({ 'address': com }, function (results, status) {  
+                    if (status == google.maps.GeocoderStatus.OK) {  
+                        res.innerHTML = "Latitude : " + results[0].geometry.location.lat() + "<br/>Longitude :" +  
+results[0].geometry.location.lng();  
+                    } else {  
+                        res.innerHTML = "Wrong Details: " + status;  
+                    }  
+                });  
+            });  
+        });  
+</script>*@
+<script type="module">
+     $(document).ready(function () {  
+     initMap(@latval,@lngval)     
+     });
+     function initMap(latval,lngval) {
+    // The location of Uluru
+    //const uluru = { lat: 40.7128, lng: -74.0060 };
+    const uluru = { lat: latval, lng: lngval };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+    });
+}
+</script>

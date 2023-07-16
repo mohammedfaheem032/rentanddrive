@@ -1,0 +1,343 @@
+﻿@model RentNDrive.Models.UIModel.VehicleView
+
+@{
+    ViewData["Title"] = "Booking Form";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="container-fluid">
+@if (User.IsInRole("Renter"))
+        {
+        <!-- Title -->
+        <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h5 class="txt-dark">Booking Form</h5>
+            </div>
+
+            <!-- Breadcrumb -->
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Renter</a></li>
+                    <li class="active"><span>Booking Form</span></li>
+                </ol>
+            </div>
+            <!-- /Breadcrumb -->
+
+        </div>}
+        <!-- /Title -->
+        <!-- Row -->
+        @if (User.IsInRole("Renter") && Model.GetVehicleInfo !=null && Model.GetVehicleInfo.Id >0 )
+        {
+        <form asp-action="BookNow" asp-controller="Renter" enctype="multipart/form-data">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default card-view">
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <h6 class="panel-title txt-dark">Renter Information</h6>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-wrap">
+                                                    <input type="hidden" class="form-control" asp-for="GetuserInfo.Id" >
+                                                    <input type="hidden" class="form-control" asp-for="GetVehicleInfo.Id" >
+
+                                            <div class="form-group">
+                                                <label asp-for="GetuserInfo.FirstName" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetuserInfo.FirstName" placeholder="First Name" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetuserInfo.LastName" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetuserInfo.LastName" placeholder="Last Name" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetuserInfo.Email" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control text-danger" asp-for="GetuserInfo.Email" placeholder="Email" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetuserInfo.PhoneNumber" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                 <input type="text" class="form-control text-danger" asp-for="GetuserInfo.PhoneNumber" placeholder="Phone Number" disabled>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.PickUpLocation" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control " asp-for="GetBookInfo.PickUpLocation" placeholder="Pick Up Location">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.DropOffLocation" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetBookInfo.DropOffLocation" placeholder="Drop Off Location">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.PickUpDate" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                <input type="datetime-local" class="form-control" asp-for="GetBookInfo.PickUpDate" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.DropOffDate" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="datetime-local" class="form-control" asp-for="GetBookInfo.DropOffDate" placeholder="Drop Off Date">
+                                                </div>
+                                            </div>
+                                            @*<div class="form-group">
+                                                <label asp-for="GetBookInfo.TotalAmount" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetBookInfo.TotalAmount" placeholder="TotalAmount">
+                                                </div>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- /Row -->
+                <div class="col-md-6">
+                    <div class="panel panel-default card-view">
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <h6 class="panel-title txt-dark">Vehicle Information</h6>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-wrap">
+                                            
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehicleName" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.VehicleName" disabled/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehiclePrice" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.VehiclePrice" placeholder="Vehicle Price" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.PriceType" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.PriceType" placeholder="Price Type" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Colour" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.Colour" placeholder="Colour" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Doors" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="number" class="form-control text-danger" asp-for="GetVehicleInfo.Doors" placeholder="Doors" disabled>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Passengers" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="number" class="form-control text-danger" asp-for="GetVehicleInfo.Passengers" placeholder="Passengers" disabled>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Luggage" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.Luggage" placeholder="Luggage" disabled>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.AirConditioning" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.AirConditioning" placeholder="Air Conditioning" disabled>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Transmission" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.Transmission" placeholder="Transmission" disabled>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group mb-0">
+                                                <div class="col-sm-offset-3 col-sm-9">
+                                                    <button type="submit" class="btn btn-info ">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        }
+        <!-- Row -->
+        <div class="row">
+					<!-- Basic Table -->
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Booking History</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">									
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+												  <tr>
+													<th>#</th>
+													<th>Owner Name</th>
+													<th>Renter Name</th>
+													<th>Vehicle Name</th>
+													<th>Pick Up</th>
+													<th>Drop Off</th>
+													<th>Pick Up Date</th>
+													<th>Drop Off Date</th>
+													<th>Total Amount / H / D / W</th>
+													<th>Payment Status | Paid Date</th>
+													<th>Actions</th>
+												  </tr>
+												</thead>
+												<tbody>
+                                            @try
+                            {
+								@if(Model !=null){
+                                @foreach (var item in Model.GetAllBookingHistory)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.Id</td>
+													<td>@item.NMOwnerName</td>
+													<td>@item.NMRenterName</td>
+													<td>@item.NMVehicleName</td>
+													<td>@item.PickUpLocation</td>
+													<td>@item.DropOffLocation</td>
+													<td>@item.PickUpDate</td>
+													<td>@item.DropOffDate</td>
+													<td>@item.TotalAmount</td>
+                                                    @{bool review = false;}
+                                                            <td>@item.PaymentStatus / @if (@item.PaymentStatus == "Paid")
+                                                                {
+                                                                    @item.PaidDate
+                                                                    review = true;
+                                                                }
+                                                            </td>	
+													
+                                                            @if (review == true  && User.IsInRole("Renter"))
+                                                            {
+                                                                <td><span class="label label-info"><a asp-action="VehicleDetails" asp-controller="Home" asp-route-id=@item.Id asp-fragment="pills-review-tab" >Review </a></span> 
+                                                                    <span class="label label-primary"><a asp-action="VehicleDetails" asp-controller="Home" asp-route-id=@item.Id asp-fragment="pills-review-tab">Survey </a></span>
+                                                        </td>}                                                            
+                                                            
+                                                            @if (@item.PaymentStatus != "Paid" && User.IsInRole("Renter"))
+                                                         {
+													<td><span class="label label-danger"><a asp-action="Payment" asp-controller="Renter" asp-route-bookId=@item.Id>Pay Now</a></span> </td>                                                            
+                                                         }        
+                                                        </tr> 
+                                                    }
+
+                                                }
+
+                                            }
+                                            catch (Exception err)
+                            {
+
+                            }
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Basic Table -->
+				</div>	
+    </div>
+
+
+</div>
+<!-- /Main Content -->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type = "text/javascript" >	
+pricetype=$('#GetVehicleInfo_PriceType').val();
+@*dropoff =$('#GetBookInfo_DropOffDate').val();*@
+console.log(pricetype);
+$('#GetBookInfo_DropOffDate').change(function() {   
+    var  endDate= $('#GetBookInfo_DropOffDate').val(); 
+    var startDate = $('#GetBookInfo_PickUpDate').val();
+    var diff = (startDate.getTime()-endDate.getTime()) / 1000 / 60 / 60;
+  console.log("Differ timing is "+diff);
+});
+$('#GetBookInfo_PickUpDate').change(function() {
+    
+});
+
+if (pricetype == Hourly) {
+  var diff = (startDate-endDate) / 1000 / 60 / 60;
+  console.log("Differ timing is "+diff);
+} else if (pricetype == Daily){
+  greeting = "Good evening";
+}
+else{
+
+}
+	// To set two dates to two variables
+	var date1 = new Date("06/30/2019");
+var date2 = new Date("07/30/2019");
+
+// To calculate the time difference of two dates
+var Difference_In_Time = date2.getTime() - date1.getTime();
+
+// To calculate the no. of days between two dates
+var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+//To display the final no. of days (result)
+document.write("Total number of days between dates <br>"
+			+ date1 + "<br> and <br>"
+			+ date2 + " is: <br> "
+			+ Difference_In_Days);
+
+</script>

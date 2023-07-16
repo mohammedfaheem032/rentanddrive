@@ -1,0 +1,161 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-RentNDrive-B0B25703-5412-4E3F-8959-EFEF5831EE0B</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\dist\css\style.css.map" />
+    <None Include="wwwroot\dist\fonts\fontawesome\fontawesome-webfont.svg" />
+    <None Include="wwwroot\dist\fonts\fontawesome\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\dist\fonts\lg\lg.svg" />
+    <None Include="wwwroot\dist\fonts\linea-icons\linea-arrows-10.svg" />
+    <None Include="wwwroot\dist\fonts\linea-icons\linea-basic-10.svg" />
+    <None Include="wwwroot\dist\fonts\linea-icons\linea-basic-elaboration-10.svg" />
+    <None Include="wwwroot\dist\fonts\linea-icons\linea-ecommerce-10.svg" />
+    <None Include="wwwroot\dist\fonts\linea-icons\linea-music-10.svg" />
+    <None Include="wwwroot\dist\fonts\linea-icons\linea-software-10.svg" />
+    <None Include="wwwroot\dist\fonts\linea-icons\linea-weather-10.svg" />
+    <None Include="wwwroot\dist\fonts\material-design-iconic-font.zip" />
+    <None Include="wwwroot\dist\fonts\material-design-iconic-font\Material-Design-Iconic-Font.svg" />
+    <None Include="wwwroot\dist\fonts\material-design-iconic-font\Material-Design-Iconic-Font.woff2" />
+    <None Include="wwwroot\dist\fonts\pe-icon-7\Pe-icon-7-stroke.svg" />
+    <None Include="wwwroot\dist\fonts\simple-line-icons\Simple-Line-Icons4c82.svg" />
+    <None Include="wwwroot\dist\fonts\simple-line-icons\Simple-Line-Icons4c82.woff2" />
+    <None Include="wwwroot\dist\fonts\themify-icons\themify.svg" />
+    <None Include="wwwroot\dist\img\country\01-flag.zip" />
+    <None Include="wwwroot\dist\img\weathericons\0.svg" />
+    <None Include="wwwroot\dist\img\weathericons\1.svg" />
+    <None Include="wwwroot\dist\img\weathericons\10.svg" />
+    <None Include="wwwroot\dist\img\weathericons\11.svg" />
+    <None Include="wwwroot\dist\img\weathericons\12.svg" />
+    <None Include="wwwroot\dist\img\weathericons\13.svg" />
+    <None Include="wwwroot\dist\img\weathericons\14.svg" />
+    <None Include="wwwroot\dist\img\weathericons\15.svg" />
+    <None Include="wwwroot\dist\img\weathericons\16.svg" />
+    <None Include="wwwroot\dist\img\weathericons\17.svg" />
+    <None Include="wwwroot\dist\img\weathericons\18.svg" />
+    <None Include="wwwroot\dist\img\weathericons\19.svg" />
+    <None Include="wwwroot\dist\img\weathericons\2.svg" />
+    <None Include="wwwroot\dist\img\weathericons\20.svg" />
+    <None Include="wwwroot\dist\img\weathericons\21.svg" />
+    <None Include="wwwroot\dist\img\weathericons\22.svg" />
+    <None Include="wwwroot\dist\img\weathericons\23.svg" />
+    <None Include="wwwroot\dist\img\weathericons\24.svg" />
+    <None Include="wwwroot\dist\img\weathericons\25.svg" />
+    <None Include="wwwroot\dist\img\weathericons\26.svg" />
+    <None Include="wwwroot\dist\img\weathericons\27.svg" />
+    <None Include="wwwroot\dist\img\weathericons\28.svg" />
+    <None Include="wwwroot\dist\img\weathericons\29.svg" />
+    <None Include="wwwroot\dist\img\weathericons\3.svg" />
+    <None Include="wwwroot\dist\img\weathericons\30.svg" />
+    <None Include="wwwroot\dist\img\weathericons\31.svg" />
+    <None Include="wwwroot\dist\img\weathericons\32.svg" />
+    <None Include="wwwroot\dist\img\weathericons\3200.svg" />
+    <None Include="wwwroot\dist\img\weathericons\33.svg" />
+    <None Include="wwwroot\dist\img\weathericons\34.svg" />
+    <None Include="wwwroot\dist\img\weathericons\35.svg" />
+    <None Include="wwwroot\dist\img\weathericons\36.svg" />
+    <None Include="wwwroot\dist\img\weathericons\37.svg" />
+    <None Include="wwwroot\dist\img\weathericons\38.svg" />
+    <None Include="wwwroot\dist\img\weathericons\39.svg" />
+    <None Include="wwwroot\dist\img\weathericons\4.svg" />
+    <None Include="wwwroot\dist\img\weathericons\40.svg" />
+    <None Include="wwwroot\dist\img\weathericons\41.svg" />
+    <None Include="wwwroot\dist\img\weathericons\42.svg" />
+    <None Include="wwwroot\dist\img\weathericons\43.svg" />
+    <None Include="wwwroot\dist\img\weathericons\44.svg" />
+    <None Include="wwwroot\dist\img\weathericons\45.svg" />
+    <None Include="wwwroot\dist\img\weathericons\46.svg" />
+    <None Include="wwwroot\dist\img\weathericons\47.svg" />
+    <None Include="wwwroot\dist\img\weathericons\5.svg" />
+    <None Include="wwwroot\dist\img\weathericons\6.svg" />
+    <None Include="wwwroot\dist\img\weathericons\7.svg" />
+    <None Include="wwwroot\dist\img\weathericons\8.svg" />
+    <None Include="wwwroot\dist\img\weathericons\9.svg" />
+    <None Include="wwwroot\dist\js\bootstrap-table-data.js" />
+    <None Include="wwwroot\dist\js\bootstrap-wysuhtml5-data.js" />
+    <None Include="wwwroot\dist\js\chartist-data.js" />
+    <None Include="wwwroot\dist\js\chartjs-data.js" />
+    <None Include="wwwroot\dist\js\cropperjs-data.js" />
+    <None Include="wwwroot\dist\js\dashboard-data.js" />
+    <None Include="wwwroot\dist\js\dashboard2-data.js" />
+    <None Include="wwwroot\dist\js\dashboard3-data.js" />
+    <None Include="wwwroot\dist\js\dashboard4-data.js" />
+    <None Include="wwwroot\dist\js\dashboard5-data.js" />
+    <None Include="wwwroot\dist\js\dashboard6-data.js" />
+    <None Include="wwwroot\dist\js\dataTables-data.js" />
+    <None Include="wwwroot\dist\js\db.js" />
+    <None Include="wwwroot\dist\js\dropdown-bootstrap-extended.js" />
+    <None Include="wwwroot\dist\js\dropzone-data.js" />
+    <None Include="wwwroot\dist\js\easypiechart-data.js" />
+    <None Include="wwwroot\dist\js\echart-data.js" />
+    <None Include="wwwroot\dist\js\ecommerce-data.js" />
+    <None Include="wwwroot\dist\js\editable-table-data.js" />
+    <None Include="wwwroot\dist\js\export-table-data.js" />
+    <None Include="wwwroot\dist\js\flot-data.js" />
+    <None Include="wwwroot\dist\js\footable-data.js" />
+    <None Include="wwwroot\dist\js\form-advance-data.js" />
+    <None Include="wwwroot\dist\js\form-file-upload-data.js" />
+    <None Include="wwwroot\dist\js\form-picker-data.js" />
+    <None Include="wwwroot\dist\js\form-wizard-data.js" />
+    <None Include="wwwroot\dist\js\form-xeditable-data.js" />
+    <None Include="wwwroot\dist\js\froogaloop2.min.js" />
+    <None Include="wwwroot\dist\js\fullcalendar-data.js" />
+    <None Include="wwwroot\dist\js\gallery-data.js" />
+    <None Include="wwwroot\dist\js\gmap-data.js" />
+    <None Include="wwwroot\dist\js\init.js" />
+    <None Include="wwwroot\dist\js\isotope.js" />
+    <None Include="wwwroot\dist\js\jquery.slimscroll.js" />
+    <None Include="wwwroot\dist\js\jsgrid-data.js" />
+    <None Include="wwwroot\dist\js\lightgallery-all.js" />
+    <None Include="wwwroot\dist\js\modal-data.js" />
+    <None Include="wwwroot\dist\js\modernizr.custom.js" />
+    <None Include="wwwroot\dist\js\morris-data.js" />
+    <None Include="wwwroot\dist\js\nestable-data.js" />
+    <None Include="wwwroot\dist\js\owl-data.js" />
+    <None Include="wwwroot\dist\js\peity-data.js" />
+    <None Include="wwwroot\dist\js\product-cart-data.js" />
+    <None Include="wwwroot\dist\js\product-checkout-data.js" />
+    <None Include="wwwroot\dist\js\product-detail-data.js" />
+    <None Include="wwwroot\dist\js\productorders-data.js" />
+    <None Include="wwwroot\dist\js\rangeslider-data.js" />
+    <None Include="wwwroot\dist\js\responsive-datatable-data.js" />
+    <None Include="wwwroot\dist\js\simpleweather-data.js" />
+    <None Include="wwwroot\dist\js\skills-counter-data.js" />
+    <None Include="wwwroot\dist\js\sparkline-data.js" />
+    <None Include="wwwroot\dist\js\spectragram.min.js" />
+    <None Include="wwwroot\dist\js\starrr.js" />
+    <None Include="wwwroot\dist\js\summernote-data.js" />
+    <None Include="wwwroot\dist\js\sweetalert-data.js" />
+    <None Include="wwwroot\dist\js\tablesaw-data.js" />
+    <None Include="wwwroot\dist\js\tinymce-data.js" />
+    <None Include="wwwroot\dist\js\toast-data.js" />
+    <None Include="wwwroot\dist\js\treeview-data.js" />
+    <None Include="wwwroot\dist\js\twitterFetcher.js" />
+    <None Include="wwwroot\dist\js\typeahead-js-data.js" />
+    <None Include="wwwroot\dist\js\vectormap-data.js" />
+    <None Include="wwwroot\dist\js\widgets-data.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GoogleMaps.LocationServices" Version="1.2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+    <PackageReference Include="System.Runtime.Serialization.Json" Version="4.0.2" />
+  </ItemGroup>
+
+</Project>

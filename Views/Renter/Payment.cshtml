@@ -1,0 +1,220 @@
+﻿@model RentNDrive.Models.UIModel.VehicleView
+
+@{
+    ViewData["Title"] = "Payment";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="container-fluid">
+       @if (User.IsInRole("Renter"))
+        {
+            <!-- Title -->
+            <div class="row heading-bg">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h5 class="txt-dark">Payment Form</h5>
+                </div>
+
+                <!-- Breadcrumb -->
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Renter</a></li>
+                        <li class="active"><span>Payment Form</span></li>
+                    </ol>
+                </div>
+                <!-- /Breadcrumb -->
+
+        </div>
+            <!-- /Title -->
+            <!-- Row -->
+            <form asp-action="Payment" asp-controller="Renter">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default card-view">
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <h6 class="panel-title txt-dark">Payment Information</h6>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-wrap">
+                                            <input type="hidden" class="form-control" asp-for="GetBookInfo.Id">
+                                            <input type="hidden" class="form-control" asp-for="GetVehicleInfo.Id">
+
+                                            <div class="form-group">
+                                                <label asp-for="GetPaymentInfo.CardName" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetPaymentInfo.CardName" placeholder="Card Holder Name" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetPaymentInfo.CardNumber" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetPaymentInfo.CardNumber" placeholder="Card Number">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="GetPaymentInfo.CardExpiryDate" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetPaymentInfo.CardExpiryDate" placeholder="Expiry Date">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetPaymentInfo.CVV" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetPaymentInfo.CVV" placeholder="CVV" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-0">
+                                                <div class="col-sm-offset-3 col-sm-9">
+                                                    <button type="submit" class="btn btn-info ">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default card-view">
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <h6 class="panel-title txt-dark">Booking Information</h6>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-wrap">
+                                            
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehicleName" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetVehicleInfo.VehicleName" disabled/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.TotalAmount" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetBookInfo.TotalAmount" placeholder="Vehicle Price" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.PickUpLocation" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                <input type="text" class="form-control text-danger" asp-for="GetBookInfo.PickUpLocation" placeholder="Price Type" disabled>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.DropOffLocation" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control text-danger" asp-for="GetBookInfo.DropOffLocation" placeholder="Colour" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.PickUpDate" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="datetime" class="form-control text-danger" asp-for="GetBookInfo.PickUpDate" placeholder="Doors" disabled>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetBookInfo.DropOffDate" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="datetime" class="form-control text-danger" asp-for="GetBookInfo.DropOffDate" placeholder="Passengers" disabled>
+
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        }
+ <!-- Row -->
+        <div class="row">
+					<!-- Basic Table -->
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Payment History</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">									
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+												  <tr>
+													<th>#</th>
+													<th>Owner Name</th>
+													<th>Renter Name</th>
+													<th>Vehicle Name</th>
+													<th>Pick Up</th>
+													<th>Drop Off</th>
+													<th>Pick Up Date</th>
+													<th>Drop Off Date</th>
+													<th>Total Amount</th>
+													<th>Paid Date</th>													
+												  </tr>
+												</thead>
+												<tbody>
+                                            @try
+                                            {
+                                                @if (Model != null)
+                                                {
+                                                    @foreach (var item in Model.GetAllPaymentHistory)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.Id</td>
+                                                            <td>@item.NMOwnerName</td>
+                                                            <td>@item.NMRenterName</td>                                                            
+                                                            <td>@item.NMVehicleTitle</td>
+                                                            <td>@item.NMPickUpLocation</td>
+                                                            <td>@item.NMDropLocation</td>
+                                                                <td>@item.NMPickUpDate</td>
+                                                                <td>@item.NMDropOffDate</td>
+                                                                <td>@item.NMPaymentPrice</td>
+                                                                <td>@item.PaymentDate</td></tr>                                                            
+                                                    }
+
+                                                }
+                                            }
+                                            catch (Exception err)
+                                            {
+
+                                            }
+                                        </tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Basic Table -->
+				</div>	
+    </div>

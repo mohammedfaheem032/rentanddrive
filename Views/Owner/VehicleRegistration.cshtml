@@ -1,0 +1,315 @@
+﻿@model RentNDrive.Models.UIModel.VehicleView
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="container-fluid">
+@if (User.IsInRole("Owner"))
+        {
+        <!-- Title -->
+        <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h5 class="txt-dark">Vehicle Registration</h5>
+            </div>
+
+            <!-- Breadcrumb -->
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="#">Owner</a></li>
+                    <li class="active"><span>Vehicle Registration</span></li>
+                </ol>
+            </div>
+            <!-- /Breadcrumb -->
+
+        </div>}
+        <!-- /Title -->
+        <!-- Row -->
+        @if (User.IsInRole("Owner"))
+        {
+        <form asp-action="VehicleRegistration" asp-controller="Owner" enctype="multipart/form-data">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default card-view">
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <h6 class="panel-title txt-dark">Basic Information</h6>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-wrap">
+
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehicleName" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.VehicleName" placeholder="Vehicle Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehicleNo" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.VehicleNo" placeholder="Vehicle Number">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.RegistrationDate" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="date" class="form-control" asp-for="GetVehicleInfo.RegistrationDate" placeholder="dd-mm-yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehicleType" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" asp-for="GetVehicleInfo.VehicleType" asp-items="@ViewBag.VehicleType"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehicleManufacturer" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" asp-for="GetVehicleInfo.VehicleManufacturer" asp-items="@ViewBag.VehicleManufacturer"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VehiclePrice" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.VehiclePrice" placeholder="Vehicle Price">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.PriceType" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" asp-for="GetVehicleInfo.PriceType">
+                                                        <option value="Hourly">Hourly</option>
+                                                        <option value="Daily">Daily</option>
+                                                        <option value="Weekly">Weekly</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.FeatureVehicle" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" asp-for="GetVehicleInfo.FeatureVehicle">
+                                                        <option value="True">Yes</option>
+                                                        <option value="False">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Terms" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                <textarea class="form-control" asp-for="GetVehicleInfo.Terms" placeholder="Terms and Condition"></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Location" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.Location" placeholder="Location">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VLatitude" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.VLatitude" placeholder="Latitude">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.VLongitude" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.VLongitude" placeholder="Longitude">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- /Row -->
+                <div class="col-md-6">
+                    <div class="panel panel-default card-view">
+                        <div class="panel-heading">
+                            <div class="pull-left">
+                                <h6 class="panel-title txt-dark">Vehicle Outlook</h6>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="form-wrap">
+
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Colour" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.Colour" placeholder="Colour">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Doors" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="number" class="form-control" asp-for="GetVehicleInfo.Doors" placeholder="Doors">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Passengers" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="number" class="form-control" asp-for="GetVehicleInfo.Passengers" placeholder="Passengers">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Luggage" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.Luggage" placeholder="Luggage">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.AirConditioning" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.AirConditioning" placeholder="Air Conditioning">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.Transmission" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" asp-for="GetVehicleInfo.Transmission" placeholder="Transmission">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="GetVehicleInfo.NMVehicleImage" class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9">
+                                                    <input type="file" class="form-control" asp-for="GetVehicleInfo.NMVehicleImage" placeholder="Vehicle Image">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group mb-0">
+                                                <div class="col-sm-offset-3 col-sm-9">
+                                                    <button type="submit" class="btn btn-info ">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        }
+        <!-- Row -->
+        <div class="row">
+					<!-- Basic Table -->
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Vehicle List</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">									
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+												  <tr>
+													<th>#</th>
+													<th>Vehicle Name</th>
+													<th>Vehicle Number</th>
+													<th>RegistrationDate</th>
+													<th>VehicleType</th>
+													<th>VehicleManufacturer</th>
+													<th>Price / W, M, D</th>
+													<th>Colour</th>
+													<th>Doors / Passengers</th>
+													<th>Location</th>
+                                                    <th>Feature Vehicle</th>
+                                                    @if (User.IsInRole("Admin")){
+                                                    <th>Available Status</th>}
+													
+												  </tr>
+												</thead>
+												<tbody>
+                                            @try
+                            {
+								@if(Model !=null){
+                                @foreach (var item in Model.GetAllVehicles)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.Id</td>
+													<td>@item.VehicleName</td>
+													<td>@item.VehicleNo</td>
+													<td>@item.RegistrationDate</td>
+													<td>@item.NMVehicleType</td>
+													<td>@item.NMVehicleManufacturer</td>
+													<td>@item.VehiclePrice / @item.PriceType</td>
+													<td>@item.Colour</td>
+													<td>@item.Doors / @item.Passengers</td>
+													<td>@item.Location</td>
+													@if (@item.FeatureVehicle == false)
+                                                         {
+													<td><span class="label label-danger">@item.FeatureVehicle</span> </td>}
+                                                            else
+                                                            {
+                                                    <td><span class="label label-success">@item.FeatureVehicle</span></td>
+                                                                
+                                                            }
+                                                            @if (User.IsInRole("Admin"))
+                                                            {
+                                                                @if(item.VehicleActiveStatus == true){
+														<td><a asp-action="ActiveInactive" asp-controller="Admin" asp-route-vehicleId="@item.Id"><i class="zmdi zmdi-shield-check mr-10"></i></a></td>}else{
+														<td><a asp-action="ActiveInactive" asp-controller="Admin" asp-route-vehicleId="@item.Id"><i class="zmdi zmdi-thumb-down mr-10"></i></a></td>}
+
+                                                            }
+                                                        </tr> 
+                                                    }
+
+                                                }
+
+                                            }
+                                            catch (Exception err)
+                            {
+
+                            }
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Basic Table -->
+				</div>	
+    </div>
+
+
+</div>
+<!-- /Main Content -->

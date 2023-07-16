@@ -1,0 +1,306 @@
+﻿@model RentNDrive.Models.UIModel.VehicleView
+@{
+    ViewData["Title"] = "Vehicle Details Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="/Home/Index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Car details <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Car Details</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section ftco-car-details">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="car-details">
+                    <div class="img rounded" style="background-image: url('/VehicleImages/@Model.GetVehicleInfo.VehicleImage');"></div>
+                    <div class="text text-center">
+                        <span class="subheading">@Model.GetVehicleInfo.NMVehicleType | @Model.GetVehicleInfo.NMVehicleManufacturer | @Model.GetVehicleInfo.NMOwnerName</span>
+                        <h2>@Model.GetVehicleInfo.VehicleName </h2>
+                        <span class="subheading">@Model.GetVehicleInfo.VehicleNo |@Model.GetVehicleInfo.RegistrationDate  | @Model.GetVehicleInfo.Location</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    @Model.GetVehicleInfo.PriceType
+                                    <span>$ @Model.GetVehicleInfo.VehiclePrice</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-pistons"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Transmission
+                                    <span>@Model.GetVehicleInfo.Transmission</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car-seat"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Seats
+                                    <span>@Model.GetVehicleInfo.Passengers</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="media-body py-md-4">
+                        <div class="d-flex mb-3 align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-backpack"></span></div>
+                            <div class="text">
+                                <h3 class="heading mb-0 pl-3">
+                                    Luggage
+                                    <span>@Model.GetVehicleInfo.Luggage Bags</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="d-flex mb-10 d-block" style="padding-left: 500px;"><a asp-controller="Renter" asp-action="BookNow" asp-route-vehId="@Model.GetVehicleInfo.Id" class="btn btn-primary py-2 mr-1">Book now</a>
+            <a asp-controller="Home" asp-action="Chat" asp-route-vehId="@Model.GetVehicleInfo.Id" class="btn btn-info py-2 mr-1">Chat now</a>
+            </p>
+
+        <div class="row">
+            <div class="col-md-12 pills">
+                <div class="bd-example bd-example-tabs">
+                    <div class="d-flex justify-content-center">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Terms and Conditions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">Review</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-survey-tab" data-toggle="pill" href="#pills-survey" role="tab" aria-controls="pills-review" aria-expanded="true">Survey</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <ul class="features">
+                                        <li class="check"><span class="ion-ios-checkmark"></span>@Model.GetVehicleInfo.AirConditioning Air Conditions</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="features">
+                                        <li class="check"><span class="ion-ios-checkmark"></span>@Model.GetVehicleInfo.Colour Colour</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="features">
+                                        <li class="check"><span class="ion-ios-checkmark"></span>@Model.GetVehicleInfo.Doors Doors</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
+                            <p>@Model.GetVehicleInfo.Terms</p>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <h3 class="head">@*23*@ Reviews</h3>
+                                    @foreach (var item in @Model.GetAllComments)
+                                    {
+                                        <div class="review d-flex">
+                                            <div class="desc">
+                                                <h4>
+                                                    <span class="text-left">@item.RenterName</span>
+                                                    <span class="text-right">@item.CommentsDate</span>
+                                                </h4>
+                                                <p class="star">
+                                                    <span>
+                                                        @for (var i = 0; i < @item.Ratings; i++)
+                                                        {
+
+                                                            <i class="ion-ios-star"></i>
+                                                        }
+                                                    </span>
+                                                </p>
+                                                <p>@item.Comments</p>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col-md-5">
+                                    @if (User.IsInRole("Renter") && Model.IsPaid == true)
+                                    {
+
+                                        <div class="comment-form-wrap pt-5">
+                                            <h3 class="mb-5">Leave a comment</h3>
+                                            <form asp-action="comment" asp-controller="Renter" class="p-5 bg-light">
+                                                <div class="form-group">
+                                                    <label for="name">Name *</label>
+                                                    <input type="text" class="form-control" asp-for=GetuserInfo.FirstName>
+                                                    <input type="hidden" class="form-control" asp-for=GetVehicleInfo.Id>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">Email *</label>
+                                                    <input type="email" class="form-control" asp-for=GetuserInfo.Email>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="GetCommentInfo.Ratings">Ratings *</label>
+                                                    <input type="number" min=1 max=5 class="form-control" asp-for=GetCommentInfo.Ratings>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message">Message</label>
+                                                    <textarea id="message" cols="30" rows="5" class="form-control" asp-for=GetCommentInfo.Comments></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-survey" role="tabpanel" aria-labelledby="pills-review-tab">
+                            <div class="row">
+                                <div class="col-md-12  bg-dark">
+                                    <h3 class="head text-white">Survey Report (@ViewBag.SurveyReport)</h3>
+                                    <div class="review d-flex">
+                                        <div class="desc">
+                                            <h6>
+                                                1. How pleased are you overall with my assistance?<br/>
+                                                Customer's Result: <span class="text-white">@TempData["Q1SurveyCount"]</span> 
+                                            </h6>
+                                            <h6>
+                                                2. Our vehicle performed as expected: <br/>
+                                                Customer's Result: <span class="text-white">@TempData["Q2SurveyCount"]</span>
+                                            </h6>
+                                            <h6>
+                                                3. Regarding affordability of our car pricing<br/> 
+                                                Customer's Result: <span class="text-white">@TempData["Q3SurveyCount"]</span>
+                                            </h6>
+                                            <h6>
+                                               4. Regarding  on the clarity of the terms and conditions <br/>
+                                               Customer's Result: <span class="text-white"> @TempData["Q4SurveyCount"]</span>
+                                            </h6>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    @if (User.IsInRole("Renter")&& Model.IsPaid == true)
+                                    {
+
+                                        <div class="comment-form-wrap pt-5">
+                                            <h3 class="mb-5">Quick Survey</h3>
+                                            <form asp-action="Survey" asp-controller="Renter" class="p-5 bg-light">
+                                              <input type="hidden" class="form-control" asp-for=GetuserInfo.FirstName>
+                                                    <input type="hidden" class="form-control" asp-for=GetVehicleInfo.Id>
+                                                <div class="form-group">
+                                                    <label >1. How pleased are you overall with my assistance?</label>
+                                                     <div class="form-group">
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q1Survey" value="Excellent" />@Enum.GetName(SurveyResult.Excellent)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q1Survey" value="Satisfactory" />@Enum.GetName(SurveyResult.Satisfactory)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q1Survey" value="Neutral" />@Enum.GetName(SurveyResult.Neutral)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q1Survey" value="NotGoodEnough" />@Enum.GetName(SurveyResult.NotGoodEnough)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q1Survey" value="ExtremelyUnsatisfactory" />@Enum.GetName(SurveyResult.ExtremelyUnsatisfactory)
+                                                </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label >2. Our vehicle performed as expected:</label>
+                                                    <div class="form-group">
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q2Survey" value="Excellent" />@Enum.GetName(SurveyResult.Excellent)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q2Survey" value="Satisfactory" />@Enum.GetName(SurveyResult.Satisfactory)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q2Survey" value="Neutral" />@Enum.GetName(SurveyResult.Neutral)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q2Survey" value="NotGoodEnough" />@Enum.GetName(SurveyResult.NotGoodEnough)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q2Survey" value="ExtremelyUnsatisfactory" />@Enum.GetName(SurveyResult.ExtremelyUnsatisfactory)
+                                                </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>3. Regarding affordability of our car pricing</label>
+                                                    <div class="form-group">
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q3Survey" value="Excellent" />@Enum.GetName(SurveyResult.Excellent)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q3Survey" value="Satisfactory" />@Enum.GetName(SurveyResult.Satisfactory)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q3Survey" value="Neutral" />@Enum.GetName(SurveyResult.Neutral)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q3Survey" value="NotGoodEnough" />@Enum.GetName(SurveyResult.NotGoodEnough)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q3Survey" value="ExtremelyUnsatisfactory" />@Enum.GetName(SurveyResult.ExtremelyUnsatisfactory)
+                                                </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="GetCommentInfo.Ratings">4. Regarding  on the clarity of the terms and conditions</label>
+                                                    <div class="form-group">
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q4Survey" value="Excellent" />@Enum.GetName(SurveyResult.Excellent)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q4Survey" value="Satisfactory" />@Enum.GetName(SurveyResult.Satisfactory)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q4Survey" value="Neutral" />@Enum.GetName(SurveyResult.Neutral)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q4Survey" value="NotGoodEnough" />@Enum.GetName(SurveyResult.NotGoodEnough)
+                                                    <input type="radio"  asp-for ="GetSurveyInfo.Q4Survey" value="ExtremelyUnsatisfactory" />@Enum.GetName(SurveyResult.ExtremelyUnsatisfactory)
+                                                </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label for="message">5. Please provide some ideas to enhance our service.</label>
+                                                    <textarea id="message" cols="30" rows="5" class="form-control" asp-for=GetSurveyInfo.Q5Survey></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" value="Post Survey" class="btn py-3 px-4 btn-primary">
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentNDrive", "RentNDrive.csproj", "{1B5E2B9B-9A47-48E2-8D59-E375E2D0FC1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B5E2B9B-9A47-48E2-8D59-E375E2D0FC1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B5E2B9B-9A47-48E2-8D59-E375E2D0FC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B5E2B9B-9A47-48E2-8D59-E375E2D0FC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B5E2B9B-9A47-48E2-8D59-E375E2D0FC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {814E5A39-1F52-458F-9B15-980F60578905}
+	EndGlobalSection
+EndGlobal

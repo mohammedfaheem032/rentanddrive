@@ -1,0 +1,109 @@
+﻿@model RentNDrive.Models.UIModel.VehManufacturerView
+
+@{
+    ViewData["Title"] = "VehicleManufacturer";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<!-- Main Content -->
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="panel-wrapper collapse in">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-sm-12 col-xs-12">
+												<div class="form-wrap">
+        <form asp-action="VehicleManufacturer">
+            <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Vehicle Manufacturer Entry</h6>
+															<hr class="light-grey-hr"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           <input type="hidden" asp-for="vehicleManNew.Id" class="form-control" placeholder="id" >
+<input type="hidden" asp-for="vehicleManNew.CreatedDate" class="form-control" placeholder="CreatedDate" >
+															<div class="row">
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label class="control-label mb-10" asp-for=vehicleManNew.VehicleManufacturerName></label>
+																		<input type="text" asp-for="vehicleManNew.VehicleManufacturerName" class="form-control" placeholder="Tata Motors">
+																		<span class="help-block" asp-validation-for="vehicleManNew.VehicleManufacturerName"></span> 
+																	</div>
+																</div>
+																<!--/span-->
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label class="control-label mb-10" asp-for="vehicleManNew.Remarks"></label>
+																		<input type="text" asp-for="vehicleManNew.Remarks" class="form-control" placeholder="....">
+																		<span class="help-block" asp-validation-for="vehicleManNew.Remarks"></span> 
+																	</div>
+																</div>
+																<!--/span-->
+															</div>
+															<!-- /Row -->																												
+															
+														<div class="form-actions mt-10">
+															<button type="submit" class="btn btn-success  mr-10"> Save</button>
+															<a type="reset" asp-action="ManufactCancel" asp-controller="Admin" class="btn btn-default">Cancel</a>
+														</div>
+					
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+				<div class="seprator-block"></div>
+				<!-- Row -->
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Vehicle List</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<div class="table-wrap">
+										<div class="table-responsive">
+											<table id="datable_1" class="table table-hover display  pb-30" >
+												<thead>
+													<tr>
+														<th>@Html.DisplayNameFor(model => model.vehicleManNew.VehicleManufacturerName)</th>
+														<th>@Html.DisplayNameFor(model => model.vehicleManNew.Remarks)</th>
+														<th>@Html.DisplayNameFor(model => model.vehicleManNew.CreatedDate)</th>
+														<th>@Html.DisplayNameFor(model => model.vehicleManNew.ModifiedDate)</th>
+														<th>Modify</th>														
+													</tr>
+												</thead>
+												
+												<tbody>
+													@try
+                            {
+								@if(Model.vehicleManList !=null){
+                                @foreach (var item in Model.vehicleManList)
+                                {
+													<tr>
+														<td>@item.VehicleManufacturerName</td>
+														<td>@item.Remarks</td>
+														<td>@item.CreatedDate</td>
+														<td>@item.ModifiedDate</td>
+														<td><a asp-action="VehicleManufacturer" asp-controller="Admin" asp-route-id="@item.Id"><i class="zmdi zmdi-edit mr-10"></i></a></td>														
+													</tr>}}}
+                            catch (Exception err)
+                            {
+
+                            }
+													
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<!-- /Row -->
+		</div>
+		<!-- /Main Content -->
+		</div>
